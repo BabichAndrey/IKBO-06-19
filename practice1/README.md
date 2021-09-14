@@ -3,4 +3,3 @@
   *1. С репозитория выгрузить файл "Praktika16.jar" 
   *2.Загрузить [Java JDK 16]( https://www.oracle.com/java/technologies/javase-jdk16-downloads.html ) с официального сайта
 Далее для запуска откройте консоль и введите команду: `java -jar Praktika16.jar` ( Указывайте путь к файлу ) или выполните двойное нажатие ЛКМ по Praktika16.jar
-.
