@@ -48,12 +48,24 @@ public class UserInputValidation {
     }
     public int[] validateRandomBeatRange(String str) {
         int[] ans = new int[0];
-
+        if (str.matches("\\s*[0-9]{1,3}\\s*,\\s*[0-9]{1,3}\\s*")) {
+            int a = Integer.parseInt(str.replaceAll(" ", "").split(",")[0]);
+            int b = Integer.parseInt(str.replaceAll(" ", "").split(",")[1]);
+            if (a > 0 && b < 251 && a < b) {
+                ans = new int[]{a, b};
+            }
+        }
         return ans;
     }
     public int[] validateRandomOctaveRange(String str) {
         int[] ans = new int[0];
-
+        if (str.matches("\\s*[3-7]{1}\\s*,\\s*[3-7]{1}\\s*")) {
+            int a = Integer.parseInt(str.replaceAll(" ", "").split(",")[0]);
+            int b = Integer.parseInt(str.replaceAll(" ", "").split(",")[1]);
+            if (a < b) {
+                ans = new int[]{a, b};
+            }
+        }
         return ans;
     }
 }
