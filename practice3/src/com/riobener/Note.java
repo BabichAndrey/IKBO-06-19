@@ -13,7 +13,20 @@ public class Note {
     }
 
     public int getMidiNote(){
-        return 0;
+        int noteIndex = 0;
+        for(int i = 0; i<notes.length;i++){
+            if(noteName.equals(notes[i])){
+                noteIndex = i;
+                break;
+            }
+        }
+        int noteNumber = 0;
+        for (int noteNum = 0; noteNum < 128; noteNum++) {
+            if((noteNum/12-1)==octave){
+                noteNumber = noteNum+noteIndex;
+            }
+        }
+        return noteNumber - 23;
     }
 
     public String getNoteName(){
@@ -29,7 +42,16 @@ public class Note {
     }
 
     public void setNoteName(String noteName) throws NoteNameFormatException {
-
+        boolean isSuccessful = false;
+        for(String note: notes){
+            if (note.equals(noteName)) {
+                this.noteName = noteName;
+                isSuccessful=true;
+                break;
+            }
+        }
+        if(!isSuccessful)
+        throw new NoteNameFormatException("Wrong note name format exception!");
     }
 
     public int getDuration() {
