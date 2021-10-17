@@ -70,7 +70,14 @@ public class UserInputValidation {
     }
     public Boolean validateMoodAndMode(String value)
     {
-        return true;
+        if(Objects.equals(value, "true"))
+        {
+            return true;
+        } else if (Objects.equals(value, "false")) {
+            return false;
+        } else {
+            return null;
+        }
     }
 }
 
