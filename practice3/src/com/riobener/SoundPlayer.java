@@ -29,11 +29,22 @@ public class SoundPlayer {
     }
 
     public void init(int instrumentNumber) throws MidiUnavailableException {
-
+        this.channel = channel;
+        this.instrumentNumber = instrumentNumber;
+        synth = MidiSystem.getSynthesizer();
+        synth.open();
+        channels = synth.getChannels();
+        channels[0].programChange(instrumentNumber);
     }
 
     public void close() throws UnableToCloseRhythmPlayerException {
-
+        if (synth.isOpen()) {
+            synth.close();
+        } else if (synth == null) {
+            throw new NullPointerException("Synth must be initialized");
+        } else {
+            throw new UnableToCloseRhythmPlayerException("Impossible to close player when he is not opened yet");
+        }
     }
 
     public MidiChannel[] getChannels() {
