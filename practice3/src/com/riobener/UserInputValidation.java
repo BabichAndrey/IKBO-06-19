@@ -13,5 +13,9 @@ public class UserInputValidation {
             return 0;
         }
     }
+
+    public String[] validateNoteList(String str){
+        return null;
+    }
 }
 
