@@ -68,5 +68,9 @@ public class UserInputValidation {
         }
         return ans;
     }
+    public Boolean validateMoodAndMode(String value)
+    {
+        return true;
+    }
 }
 
