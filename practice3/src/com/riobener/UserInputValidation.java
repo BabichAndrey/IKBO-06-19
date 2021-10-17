@@ -6,7 +6,12 @@ import java.util.Objects;
 
 public class UserInputValidation {
     public int validateBPM(String count) {
-        return 0;
+        int countInt = Integer.parseInt(count);
+        if ((countInt > 60) && (countInt < 300)) {
+            return countInt;
+        } else {
+            return 0;
+        }
     }
 }
 
