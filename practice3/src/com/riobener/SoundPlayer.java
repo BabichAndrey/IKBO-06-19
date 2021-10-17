@@ -56,10 +56,27 @@ public class SoundPlayer {
     }
 
     public void playChord(double duration, int volume, List<Integer> notes) {
-
+        for (int note : notes) {
+            channels[channel].noteOn(note, volume);
+        }
+        try {
+            Thread.sleep((long) duration);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(SoundPlayer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        for (int note : notes) {
+            channels[channel].noteOff(note);
+        }
     }
 
     public void playNote(double duration, int volume, Note note) {
+        channels[channel].noteOn(note.getMidiNote(), volume);
+        try {
+            Thread.sleep((long) duration);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(SoundPlayer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        channels[channel].noteOff(note.getMidiNote());
 
     }
 
