@@ -28,5 +28,18 @@ public class SoundPlayerTest {
         assertTrue(synthOpenException.getMessage().contains(notOpenMessage));
     }
 
+    @Test
+    void playChord() throws MidiUnavailableException {
+        SoundPlayer player = new SoundPlayer();
+        player.init(0);
+        assertDoesNotThrow(() -> player.playChord(500, 70, new Chord().getMajorChord(new Note(4, "C"))));
+    }
+
+    @Test
+    void playSound() throws MidiUnavailableException {
+        SoundPlayer player = new SoundPlayer();
+        player.init(0);
+        assertDoesNotThrow(() -> player.playNote(500, 70,new Note(4,"C")));
+    }
 
 }

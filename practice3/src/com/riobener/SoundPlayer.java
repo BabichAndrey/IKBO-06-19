@@ -55,5 +55,13 @@ public class SoundPlayer {
         this.channels = channels;
     }
 
+    public void playChord(double duration, int volume, List<Integer> notes) {
+
+    }
+
+    public void playNote(double duration, int volume, Note note) {
+
+    }
+
 
 }
