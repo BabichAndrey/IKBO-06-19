@@ -46,5 +46,15 @@ public class UserInputValidation {
         }
         return notesArray;
     }
+    public int[] validateRandomBeatRange(String str) {
+        int[] ans = new int[0];
+
+        return ans;
+    }
+    public int[] validateRandomOctaveRange(String str) {
+        int[] ans = new int[0];
+
+        return ans;
+    }
 }
 
