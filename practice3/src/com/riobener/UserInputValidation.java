@@ -14,8 +14,37 @@ public class UserInputValidation {
         }
     }
 
+    public int validateInstrument(String count) {
+        int countInt = Integer.parseInt(count);
+        if ((countInt > -1) && (countInt < 100)) {
+            return countInt;
+        } else {
+            return -1;
+        }
+    }
     public String[] validateNoteList(String str){
-        return null;
+        String[] notes = new String[] {"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B" };
+        String s1 = str.replaceAll(" ","");
+        long numOfNotes = str.chars().filter(ch -> ch == ',').count() + 1;
+        String[] notesArray = s1.split(",");
+        if(numOfNotes >= 4 && numOfNotes <=7 && !s1.startsWith(",") && !s1.contains(",,") && !s1.endsWith(",") && !str.contains(" #")){
+            boolean flag = false;
+            ArrayList<String> check = new ArrayList<String>();
+            for (String note:notesArray){
+                if(!Arrays.asList(notes).contains(note) || check.contains(note)){
+                    flag =true;
+                    break;
+                }
+                check.add(note);
+            }
+            if(flag) {
+                notesArray = new String[0];
+            }
+
+        }else {
+            notesArray = new String[0];
+        }
+        return notesArray;
     }
 }
 
